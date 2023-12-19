@@ -1,0 +1,9 @@
+{
+	"name": "adf-azure-training-mkaehne",
+	"location": "germanywestcentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "462cce43-9199-4aa4-a082-f6573d178321",
+		"tenantId": "d3675d0f-75c9-4863-860e-5ae18b362297"
+	}
+}
