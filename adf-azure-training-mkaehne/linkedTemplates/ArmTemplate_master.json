@@ -1,0 +1,63 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-azure-training-mkaehne"
+		},
+		"ls_adb_azure_training_mkaehne_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_adb_azure_training_mkaehne'"
+		},
+		"ls_sa_azure_training_mkaehne_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_sa_azure_training_mkaehne'"
+		},
+		"ls_sa_azure_training_mkaehne_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://saazuretrainingmkaehne.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf-azure-training-mkaehne_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ls_adb_azure_training_mkaehne_connectionString": {
+						"value": "[parameters('ls_adb_azure_training_mkaehne_connectionString')]"
+					},
+					"ls_sa_azure_training_mkaehne_accountKey": {
+						"value": "[parameters('ls_sa_azure_training_mkaehne_accountKey')]"
+					},
+					"ls_sa_azure_training_mkaehne_properties_typeProperties_url": {
+						"value": "[parameters('ls_sa_azure_training_mkaehne_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

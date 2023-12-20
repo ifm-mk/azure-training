@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-azure-training-mkaehne"
+		},
+		"ls_adb_azure_training_mkaehne_connectionString": {
+			"value": ""
+		},
+		"ls_sa_azure_training_mkaehne_accountKey": {
+			"value": ""
+		},
+		"ls_sa_azure_training_mkaehne_properties_typeProperties_url": {
+			"value": "https://saazuretrainingmkaehne.dfs.core.windows.net/"
+		}
+	}
+}
